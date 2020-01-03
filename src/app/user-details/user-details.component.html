@@ -1,1 +1,21 @@
-<p>user-details works!</p>
+<h2>Users Details</h2> 
+
+<hr/>
+<div *ngIf="user">
+  <div>
+    <label><b>First Name: </b></label> {{user.prenom}}
+  </div>
+  <div>
+    <label><b>Last Name: </b></label> {{user.nom}}
+  </div>
+  <div>
+    <label><b>Genie: </b></label> {{user.genie}}
+  </div>  
+  <div>
+    <label><b>Matricule: </b></label> {{user.matricule}}
+  </div> 
+</div>
+
+<br>
+<br>
+<button (click)="list()" class="btn btn-primary">Back to Users List</button><br>
