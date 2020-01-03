@@ -13,22 +13,22 @@ export class UserDetailsComponent implements OnInit {
   matricule: number;
   user: User;
 
-  constructor(private route: ActivatedRoute,private router: Router,
-    private userService: UserService) { }
+  constructor(private route: ActivatedRoute, private router: Router,
+              private userService: UserService) { }
 
   ngOnInit() {
     this.user = new User();
 
-    this.matricule = this.route.snapshot.params['matricule'];
-    
+    this.matricule = this.route.snapshot.params.matricule;
+
     this.userService.getUser(this.matricule)
       .subscribe(data => {
-        console.log(data)
+        console.log(data);
         this.user = data;
       }, error => console.log(error));
   }
 
-  list(){
+  list() {
     this.router.navigate(['users']);
   }
 
