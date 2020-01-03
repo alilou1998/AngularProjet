@@ -12,11 +12,11 @@ export class CreateUserComponent implements OnInit {
   user: User = new User();
 
   submitted = false;
-  constructor(private userService:UserService,private router:Router) { }
-  
-  newUser():void{
-    this.submitted=false;
-    this.user=new User();
+  constructor(private userService: UserService, private router: Router) { }
+
+  newUser(): void {
+    this.submitted = false;
+    this.user = new User();
   }
 
   save() {
@@ -28,13 +28,13 @@ export class CreateUserComponent implements OnInit {
 
   onSubmit() {
     this.submitted = true;
-    this.save();    
+    this.save();
   }
 
   gotoList() {
     this.router.navigate(['/users']);
   }
-  
+
 
   ngOnInit() {
   }
