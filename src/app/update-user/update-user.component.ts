@@ -13,22 +13,22 @@ export class UpdateUserComponent implements OnInit {
   matricule: number;
   user: User;
 
-  constructor(private route:ActivatedRoute,private router:Router,private userService:UserService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private userService: UserService) { }
 
   ngOnInit() {
-    this.user= new User();
-    this.matricule=this.route.snapshot.params['matricule'];
+    this.user = new User();
+    this.matricule = this.route.snapshot.params.matricule;
     this.userService.getUser(this.matricule)
-    .subscribe(data=>{
+    .subscribe(data => {
       console.log(data)
-      this.user=data;
-    },error =>console.log(error));
+      this.user = data;
+    }, error => console.log(error));
   }
 
   updateUser(){
-    this.userService.updateUser(this.matricule,this.user)
-    .subscribe(data=>console.log(data),error=>console.log(error));
-    this.user=new User();
+    this.userService.updateUser(this.matricule, this.user)
+    .subscribe(data => console.log(data), error => console.log(error));
+    this.user = new User();
     this.gotoList();
     }
     onSubmit(){
