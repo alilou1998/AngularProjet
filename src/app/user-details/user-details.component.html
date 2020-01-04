@@ -1,21 +1,45 @@
 <h2>Users Details</h2>
 
-<hr/>
-<div *ngIf="user">
-  <div>
-    <label><b>First Name: </b></label> {{user.prenom}}
-  </div>
-  <div>
-    <label><b>Last Name: </b></label> {{user.nom}}
-  </div>
-  <div>
-    <label><b>Genie: </b></label> {{user.genie}}
-  </div>
-  <div>
-    <label><b>Matricule: </b></label> {{user.matricule}}
-  </div>
-</div>
+
+
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Firstname</th>
+      <th>Lastname</th>
+      <th>Génie</th>
+      <th>Matricule</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr *ngIf="user">
+
+      <td>{{user.prenom}}</td>
+      <td>{{user.nom}}</td>
+      <td>{{user.genie}}</td>
+      <td>{{user.matricule}}</td>
+      <td><button (click)="deleteUser(user.matricule)" class="btn btn-danger">Delete</button>
+
+          <button  (click)="updateUser(user.matricule)" class="btn btn-warning" style="margin-left: 10px">Update</button>
+      </td>
+    </tr>
+
+  </tbody>
+</table>
+
+
+
 
 <br>
-<br>
-<button (click)="list()" class="btn btn-primary">Back to Users List</button><br>
+<form class="form-group text-center" [hidden]="submitted">
+<button (click)="list()" class="btn btn-primary">Back to Users List</button>
+
+</form>
+<div [hidden]="!submitted">
+  <form class="form-group text-center">
+    <button (click)="confirmer(user.matricule)" class="btn btn-success">Confirmer</button>
+    <button (click)="annuler()" class="btn btn-warning" style="margin-left:10px ;">Annuler</button>
+    </form>
+</div>

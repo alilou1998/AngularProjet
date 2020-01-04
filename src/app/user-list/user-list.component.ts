@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, ObservableInput } from 'rxjs';
 import { User } from '../user';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 })
 export class UserListComponent implements OnInit {
   users: Observable<User[]>;
+
+  matricule: number;
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
@@ -19,6 +21,7 @@ export class UserListComponent implements OnInit {
 
   reloadData() {
     this.users = this.userService.getUsersList();
+
   }
 
   deleteUser(matricule: number) {
@@ -35,8 +38,13 @@ export class UserListComponent implements OnInit {
     this.router.navigate(['details', matricule]);
   }
 
-  userUpdate(matricule: number){
+  userUpdate(matricule: number) {
     this.router.navigate(['update', matricule]);
+  }
+
+  searchUser(matricule: number) {
+
+    this.router.navigate(['details',matricule]);
   }
 
 }

@@ -33,8 +33,8 @@ export class UpdateUserComponent implements OnInit {
     }
 
   onSubmit() {
-    this.submitted=true;
-      this.updateUser();
+    this.submitted = true;
+    this.updateUser();
     }
 
   gotoList() {

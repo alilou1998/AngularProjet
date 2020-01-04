@@ -1,8 +1,27 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 <div class="panel panel-primary">
-    <div class="panel-heading">
+
+    <div class="panel-heading" style="position: absolute;left: 45%;" >
       <h2>Users List</h2>
     </div>
+
+    <div class="jumbotron text-center">
     <div class="panel-body">
+      <form class="form-inline" >
+        <div class="form-group" style="position: relative;left: 40%;" >
+          <div class="input-group mb-3" >
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="basic-addon1"><i class="fa fa-search"></i></span>
+            </div>
+            <input type="text" class="form-control " id="matricule" placeholder="Matricule" aria-label="Matricule" aria-describedby="basic-addon1" required [(ngModel)]="matricule" name="matrciule" style="border-top-right-radius: 5px;border-bottom-right-radius: 5px;">
+            <div class="input-group-btn"  >
+              <button (click)="searchUser(matricule)" class="btn btn-primary " style="margin-left: 10px;">Search</button>
+            </div>
+          </div>
+
+        </div>
+      </form>
       <table class="table table-striped">
         <thead>
           <tr>
@@ -13,17 +32,20 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let user of users | async">
-            <td>{{user.prenom}}</td>
-            <td>{{user.nom}}</td>
-            <td>{{user.genie}}</td>
-            <td>{{user.matricule}}</td>
-            <td><button (click)="deleteUser(user.matricule)" class="btn btn-danger">Delete</button>
-                <button (click)="userDetails(user.matricule)" class="btn btn-info" style="margin-left: 10px">Details</button>
-                <button  (click)="userUpdate(user.matricule)" class="btn btn-warning" style="margin-left: 10px">Update</button>
+
+          <tr *ngFor="let utilisateur of users | async ">
+
+            <td>{{utilisateur.prenom}}</td>
+            <td>{{utilisateur.nom}}</td>
+            <td>{{utilisateur.genie}}</td>
+            <td>{{utilisateur.matricule}}</td>
+            <td><button (click)="deleteUser(utilisateur.matricule)" class="btn btn-danger">Delete</button>
+                <button (click)="userDetails(utilisateur.matricule)" class="btn btn-info" style="margin-left: 10px">Details</button>
+                <button  (click)="userUpdate(utilisateur.matricule)" class="btn btn-warning" style="margin-left: 10px">Update</button>
             </td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
+</div>
