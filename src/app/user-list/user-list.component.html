@@ -20,6 +20,7 @@
             <td>{{user.matricule}}</td>
             <td><button (click)="deleteUser(user.matricule)" class="btn btn-danger">Delete</button>
                 <button (click)="userDetails(user.matricule)" class="btn btn-info" style="margin-left: 10px">Details</button>
+                <button  (click)="userUpdate(user.matricule)" class="btn btn-warning" style="margin-left: 10px">Update</button>
             </td>
           </tr>
         </tbody>

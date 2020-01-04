@@ -11,14 +11,14 @@ import { Router } from '@angular/router';
 })
 export class UserListComponent implements OnInit {
   users: Observable<User[]>;
-  constructor(private userService: UserService,private router:Router) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
     this.reloadData();
   }
 
-  reloadData(){
-    this.users=this.userService.getUsersList();
+  reloadData() {
+    this.users = this.userService.getUsersList();
   }
 
   deleteUser(matricule: number) {
@@ -31,9 +31,12 @@ export class UserListComponent implements OnInit {
         error => console.log(error));
   }
 
-  userDetails(matricule: number){
+  userDetails(matricule: number) {
     this.router.navigate(['details', matricule]);
   }
 
+  userUpdate(matricule: number){
+    this.router.navigate(['update', matricule]);
+  }
 
 }

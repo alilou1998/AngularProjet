@@ -7,9 +7,9 @@ import { UserDetailsComponent } from './user-details/user-details.component';
 
 
 const routes: Routes = [
-  {path: '', redirectTo: 'user', pathMatch: 'full' },
-  {path:'users',component:UserListComponent},
-  {path:'users/add',component:CreateUserComponent},
+  {path: '', redirectTo: 'users', pathMatch: 'full' },
+  {path: 'users', component: UserListComponent},
+  {path: 'users/add', component: CreateUserComponent},
   { path: 'update/:matricule', component: UpdateUserComponent },
   { path: 'details/:matricule', component: UserDetailsComponent },
 ];

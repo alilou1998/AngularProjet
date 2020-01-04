@@ -1,26 +1,41 @@
-<h3>Update User</h3>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="node_modules/@angular/forms/bundles/forms.umd.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<h3>Update user</h3>
 <div [hidden]="submitted" style="width: 400px;">
   <form (ngSubmit)="onSubmit()">
     <div class="form-group">
       <label for="name">First Name</label>
-      <input type="text" class="form-control" id="prenom" required ng-Model="user.prenom" name="prenom">
+      <input type="text" class="form-control" id="prenom" required [(ngModel)]="user.prenom" name="prenom">
     </div>
 
     <div class="form-group">
       <label for="name">Last Name</label>
-      <input type="text" class="form-control" id="nom" required ng-Model="user.nom" name="nom">
+      <input type="text" class="form-control" id="nom" required [(ngModel)]="user.nom" name="nom">
     </div>
 
     <div class="form-group">
       <label for="name">Genie</label>
-      <input type="text" class="form-control" id="genie" required ng-Model="user.genie" name="genie">
+      <input type="text" class="form-control" id="genie" required [(ngModel)]="user.genie" name="genie">
     </div>
 
     <div class="form-group">
         <label for="name">Matricule</label>
-        <input type="text" class="form-control" id="matricule" required ng-Model="user.matricule" name="matricule">
+        <input type="text" class="form-control" id="matricule" required [(ngModel)]="user.matricule" name="matricule">
       </div>
+      <button type="submit" class="btn btn-success">Submit</button>
 
-    <button type="submit" class="btn btn-success">Submit</button>
   </form>
 </div>
+
+<div [hidden]="!submitted" style="width: 400px;">
+  <h4>Update terminated successfully!</h4>
+  <td class="form-group">
+
+    <button class="btn btn-success" (click)="gotoList()" style="margin-left: 10px;">Back to Users List</button>
+  </td>
+</div>
+

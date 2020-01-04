@@ -8,6 +8,8 @@ import { DeleteUserComponent } from './delete-user/delete-user.component';
 import { UserDetailsComponent } from './user-details/user-details.component';
 import { UserListComponent } from './user-list/user-list.component';
 import {HttpClientModule} from '@angular/common/http';
+import {FormsModule} from '@angular/forms';
+
 
 @NgModule({
   declarations: [
@@ -19,13 +21,13 @@ import {HttpClientModule} from '@angular/common/http';
     UserListComponent
   ],
   imports: [
-
+    FormsModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule
   ],
   providers: [
-    HttpClientModule,
+
   ],
   bootstrap: [AppComponent]
 })
